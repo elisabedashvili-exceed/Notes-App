@@ -49,7 +49,7 @@ export default function AddNote() {
         .post(CLOUDINARY_UPLOAD_URL, formData)
         .then((res) => {
           axios
-            .post("http://localhost:5555/add", {
+            .post("https://vakhos-notes-server.herokuapp.com/add", {
               value,
               image: res.data.url,
               username,
@@ -58,7 +58,7 @@ export default function AddNote() {
               const { value, id, image } = response.data;
               dispatch(addNote(value, image, id));
               axios
-                .get(`http://localhost:5555/${username}`)
+                .get(`https://vakhos-notes-server.herokuapp.com/${username}`)
                 .then((response) => {
                   dispatch(getNotes(response.data));
                   history.push("/");

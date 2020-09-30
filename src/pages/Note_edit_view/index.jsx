@@ -38,7 +38,7 @@ export default function Note_edit_view() {
     let username = decoded.payload.username;
 
     axios
-      .get(`http://localhost:5555/${username}`)
+      .get(`https://vakhos-notes-server.herokuapp.com/${username}`)
       .then((response) => {
         dispatch(getNotes(response.data));
       })
@@ -50,7 +50,7 @@ export default function Note_edit_view() {
   const handleDelete = () => {
     dispatch(deleteNote(id));
     axios
-      .delete(`http://localhost:5555/delete/${id}`)
+      .delete(`https://vakhos-notes-server.herokuapp.com/delete/${id}`)
       .then((doc) => {
         if (!doc) {
           console.log("Error");
@@ -66,7 +66,7 @@ export default function Note_edit_view() {
   const handleEdit = () => {
     dispatch(editNote(noteBody.current.value, null, id));
     axios
-      .put(`http://localhost:5555/edit/${id}`, {
+      .put(`https://vakhos-notes-server.herokuapp.com/edit/${id}`, {
         value: noteBody.current.value,
       })
       .then(() => {

@@ -33,7 +33,7 @@ export default function Login() {
       };
 
       axios
-        .post("http://localhost:5555/login", userObject)
+        .post("https://vakhos-notes-server.herokuapp.com/login", userObject)
         .then((res) => {
           if (res.data === "Incorrect password") {
             alert("Incorrect password");

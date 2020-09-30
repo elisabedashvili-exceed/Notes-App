@@ -25,7 +25,7 @@ export default function Notes() {
     let username = decoded.payload.username;
 
     axios
-      .get(`http://localhost:5555/${username}`)
+      .get(`https://vakhos-notes-server.herokuapp.com/${username}`)
       .then((response) => {
         dispatch(getNotes(response.data));
       })

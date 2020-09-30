@@ -12,7 +12,7 @@ export default function Authentication(ComponentToProtect) {
     }
     componentDidMount() {
       axios
-        .get("http://localhost:5555/checkToken")
+        .get("https://vakhos-notes-server.herokuapp.com/checkToken")
         .then((res) => {
           if (res.status === 200) {
             this.setState({ loading: false });

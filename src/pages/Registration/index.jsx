@@ -25,7 +25,7 @@ const Registration = () => {
         password: firstPassField.current.value,
       };
       axios
-        .post("http://localhost:5555/addUser", userObject)
+        .post("https://vakhos-notes-server.herokuapp.com/addUser", userObject)
         .then((res) => {
           if (res.data.name === "SequelizeUniqueConstraintError") {
             alert("Username Taken");
