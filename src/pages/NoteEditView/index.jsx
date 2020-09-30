@@ -10,10 +10,10 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-import "./Note_edit_view.css";
+import "./NoteEditView.css";
 import { deleteNote, editNote, getNotes } from "../../redux/actions";
 
-export default function Note_edit_view() {
+export default function NoteEditView() {
   const noteBody = useRef(null);
   const notes = useSelector((state) => state.notes);
   const dispatch = useDispatch();

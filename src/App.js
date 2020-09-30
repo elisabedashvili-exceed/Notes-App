@@ -8,8 +8,8 @@ import reducer from "./redux/rootReducer";
 import "./App.css";
 import Notes from "./pages/Notes";
 import AddNote from "./pages/AddNote";
-import Note_edit_view from "./pages/Note_edit_view";
-import Note_edit_view_Demo from "./pages/Note_edit_view_Demo";
+import NoteEditView from "./pages/NoteEditView";
+import NoteEditViewDemo from "./pages/NoteEditViewDemo";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import Demo from "./pages/Demo";
@@ -30,10 +30,10 @@ function App() {
           <Switch>
             <Route exact path="/" component={Authentication(Notes)} />
             <Route path="/addnote" component={AddNote} />
-            <Route path="/view-edit-note/:id" component={Note_edit_view} />
+            <Route path="/view-edit-note/:id" component={NoteEditView} />
             <Route
               path="/view-edit-note-demo/:id"
-              component={Note_edit_view_Demo}
+              component={NoteEditViewDemo}
             />
             <Route path="/login" component={Login} />
             <Route path="/registration" component={Registration} />
