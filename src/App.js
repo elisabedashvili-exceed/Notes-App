@@ -9,8 +9,10 @@ import "./App.css";
 import Notes from "./pages/Notes";
 import AddNote from "./pages/AddNote";
 import Note_edit_view from "./pages/Note_edit_view";
+import Note_edit_view_Demo from "./pages/Note_edit_view_Demo";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
+import Demo from "./pages/Demo";
 import Header from "./components/Header";
 import Authentication from "./components/Authentication";
 
@@ -29,8 +31,13 @@ function App() {
             <Route exact path="/" component={Authentication(Notes)} />
             <Route path="/addnote" component={AddNote} />
             <Route path="/view-edit-note/:id" component={Note_edit_view} />
+            <Route
+              path="/view-edit-note-demo/:id"
+              component={Note_edit_view_Demo}
+            />
             <Route path="/login" component={Login} />
             <Route path="/registration" component={Registration} />
+            <Route path="/demo" component={Demo} />
           </Switch>
         </Router>
       </div>

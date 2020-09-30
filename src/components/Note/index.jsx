@@ -14,7 +14,11 @@ export default function Note({ note, createdAt, image, id }) {
           : `url(${require("../../note.jpg")})`,
       }}
       onClick={() => {
-        history.push(`/view-edit-note/${id}`);
+        if (!id.toString().includes("test")) {
+          history.push(`/view-edit-note/${id}`);
+        } else {
+          history.push(`/view-edit-note-demo/${id}`);
+        }
       }}
     >
       <span className="note-body">

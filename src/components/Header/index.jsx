@@ -22,6 +22,11 @@ const Header = () => {
 
   return (
     <div className="header_container">
+      <Link to="/demo">
+        <Button variant="contained" size="small" color="primary">
+          Demo Page
+        </Button>
+      </Link>
       <div
         style={{
           display: loggedIn ? "flex" : "none",
