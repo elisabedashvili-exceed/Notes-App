@@ -13,15 +13,6 @@ Material UI - designing elements
 
 react-avatar-editor - cropping and rotating image
 
-### Back-end
-Express - to run the server
-
-bcrypt - hashing passwords
-
-jsonwebtoken - authorising users
-
-Sequelize - technology used for working with databases (PostgreSQL in my case)
-
 
 ## User Manual:
 Clone this app into your machine. Run script that is responsible for launching (`npm start` in this case). 
