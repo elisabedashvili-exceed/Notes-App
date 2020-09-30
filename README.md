@@ -30,4 +30,4 @@ and run it with `npm run dev`. After that you should register (without confirmat
 While adding note you can attach image also. When you attach image, set cropping and rotating options according to your wish you should click 
 "Finish editing and attach image" button, you'll get alert message in case of success and only after that you can click big mark icon to save note with image.
 
-You can enjoy the app without deploying into machine from [here]
+You can enjoy the app without deploying into machine from [here](https://notes-app-pern.herokuapp.com/).
