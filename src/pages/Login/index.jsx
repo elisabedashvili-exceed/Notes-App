@@ -5,9 +5,11 @@ import axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-import "./Login.css";
 import { login } from "../../redux/actions";
 import { useDispatch } from "react-redux";
+
+import "./Login.css";
+import host from "../../host";
 
 export default function Login() {
   let usernameFieldRef = useRef(null);
@@ -33,7 +35,7 @@ export default function Login() {
       };
 
       axios
-        .post("https://vakhos-notes-server.herokuapp.com/login", userObject)
+        .post(`${host}/login`, userObject)
         .then((res) => {
           if (res.data === "Incorrect password") {
             alert("Incorrect password");

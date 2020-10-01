@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
 import "./Registration.css";
+import host from "../../host";
 
 const Registration = () => {
   let usernameFieldRef = useRef(null);
@@ -25,7 +26,7 @@ const Registration = () => {
         password: firstPassField.current.value,
       };
       axios
-        .post("https://vakhos-notes-server.herokuapp.com/addUser", userObject)
+        .post(`${host}/addUser`, userObject)
         .then((res) => {
           if (res.data.name === "SequelizeUniqueConstraintError") {
             alert("Username Taken");

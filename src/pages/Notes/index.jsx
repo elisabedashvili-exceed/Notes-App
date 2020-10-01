@@ -7,9 +7,11 @@ import * as jwt from "jsonwebtoken";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import IconButton from "@material-ui/core/IconButton";
 
-import "./Notes.css";
 import Note from "../../components/Note";
 import { getNotes } from "../../redux/actions";
+
+import "./Notes.css";
+import host from "../../host";
 
 export default function Notes() {
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ export default function Notes() {
     let username = decoded.payload.username;
 
     axios
-      .get(`https://vakhos-notes-server.herokuapp.com/${username}`)
+      .get(`${host}/${username}`)
       .then((response) => {
         dispatch(getNotes(response.data));
       })

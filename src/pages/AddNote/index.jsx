@@ -14,6 +14,7 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import IconButton from "@material-ui/core/IconButton";
 
 import "./AddNote.css";
+import host from "../../host";
 
 export default function AddNote() {
   const CLOUDINARY_UPLOAD_PRESET = "meslh0nm";
@@ -49,7 +50,7 @@ export default function AddNote() {
         .post(CLOUDINARY_UPLOAD_URL, formData)
         .then((res) => {
           axios
-            .post("https://vakhos-notes-server.herokuapp.com/add", {
+            .post(`${host}/add`, {
               value,
               image: res.data.url,
               username,
@@ -57,12 +58,10 @@ export default function AddNote() {
             .then((response) => {
               const { value, id, image } = response.data;
               dispatch(addNote(value, image, id));
-              axios
-                .get(`https://vakhos-notes-server.herokuapp.com/${username}`)
-                .then((response) => {
-                  dispatch(getNotes(response.data));
-                  history.push("/");
-                });
+              axios.get(`${host}/${username}`).then((response) => {
+                dispatch(getNotes(response.data));
+                history.push("/");
+              });
             })
             .catch((err) => {
               console.log(err + " unable to save to database");

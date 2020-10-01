@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import TextField from "@material-ui/core/TextField";
 
-import "./Note_edit_view_Demo.css";
+import "./NoteEditViewDemo.css";
 
 export default function Note_edit_view_Demo() {
   const history = useHistory();

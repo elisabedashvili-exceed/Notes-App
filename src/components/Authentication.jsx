@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+
+import host from "../host";
+
 export default function Authentication(ComponentToProtect) {
   return class extends Component {
     constructor() {
@@ -12,7 +15,7 @@ export default function Authentication(ComponentToProtect) {
     }
     componentDidMount() {
       axios
-        .get("https://vakhos-notes-server.herokuapp.com/checkToken")
+        .get(`${host}/checkToken`)
         .then((res) => {
           if (res.status === 200) {
             this.setState({ loading: false });

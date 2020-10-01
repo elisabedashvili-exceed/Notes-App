@@ -10,8 +10,9 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-import "./NoteEditView.css";
 import { deleteNote, editNote, getNotes } from "../../redux/actions";
+import "./NoteEditView.css";
+import host from "../../host";
 
 export default function NoteEditView() {
   const noteBody = useRef(null);
@@ -38,7 +39,7 @@ export default function NoteEditView() {
     let username = decoded.payload.username;
 
     axios
-      .get(`https://vakhos-notes-server.herokuapp.com/${username}`)
+      .get(`${host}/${username}`)
       .then((response) => {
         dispatch(getNotes(response.data));
       })
@@ -50,7 +51,7 @@ export default function NoteEditView() {
   const handleDelete = () => {
     dispatch(deleteNote(id));
     axios
-      .delete(`https://vakhos-notes-server.herokuapp.com/delete/${id}`)
+      .delete(`${host}/delete/${id}`)
       .then((doc) => {
         if (!doc) {
           console.log("Error");
@@ -66,7 +67,7 @@ export default function NoteEditView() {
   const handleEdit = () => {
     dispatch(editNote(noteBody.current.value, null, id));
     axios
-      .put(`https://vakhos-notes-server.herokuapp.com/edit/${id}`, {
+      .put(`${host}/edit/${id}`, {
         value: noteBody.current.value,
       })
       .then(() => {
